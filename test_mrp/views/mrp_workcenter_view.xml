@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="mrp_workcenter_view_inherit" model="ir.ui.view">
+        <field name="name">mrp.workcenter.form.inherit</field>
+        <field name="model">mrp.workcenter</field>
+        <field name="inherit_id" ref="mrp.mrp_workcenter_view"/>
+        <field name="arch" type="xml">
+            <field name="resource_calendar_id" position="after">
+                <field name="user_id"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="mrp_workcenter_tree_view_inherit" model="ir.ui.view">
+        <field name="name">mrp.workcenter.form.inherit</field>
+        <field name="model">mrp.workcenter</field>
+        <field name="inherit_id" ref="mrp.mrp_workcenter_tree_view"/>
+        <field name="arch" type="xml">
+            <field name="code" position="after">
+                <field name="user_id"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_mrp_workcenter_search_inherit" model="ir.ui.view">
+        <field name="name">mrp.workcenter.form.inherit</field>
+        <field name="model">mrp.workcenter</field>
+        <field name="inherit_id" ref="mrp.view_mrp_workcenter_search"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="user_id"/>
+                <filter name="user" string="Allow User" domain="[('user_id','!=',False)]"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     <record id="ir_rule_hr_contract_employee_manager" model="ir.rule">
+            <field name="name">User: workcenter</field>
+            <field name="model_id" ref="model_mrp_workcenter"/>
+            <field name="groups" eval="[(4, ref('mrp.group_mrp_user'))]"/>
+            <field name="domain_force">[('user_id', '=', user.id)]</field>
+     </record>
+</odoo>

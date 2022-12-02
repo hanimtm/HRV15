@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="mrp_production_workcenter_view_inherit" model="ir.ui.view">
+        <field name="name">mrp.workorder.form.inherit</field>
+        <field name="model">mrp.workorder</field>
+        <field name="inherit_id" ref="mrp.mrp_production_workorder_form_view_inherit"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='time_ids']/tree/field[@name='user_id']" position="before">
+                <field name="employee"/>
+            </xpath>
+            <xpath expr="//notebook/page[@name='time_tracking']" position="after">
+                 <page string="Parts Quantities" name="parts_quantities">
+                <field name="workorder_line">
+                    <tree editable="bottom">
+                        <field name="date_start"/>
+                        <field name="workorder_id" invisible="1"/>
+                        <field name="qty_finished"/>
+                        <field name="name_machine"/>
+                    </tree>
+                </field>
+                     <group class="oe_subtotal_footer oe_right">
+                         <field name="total_qty_finished" colspan="2" invisible="1"/>
+                         <field name="qty_balance" colspan="2"  />
+                     </group>
+                 </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="test_workcenter_line_pivot_inherit_workorder" model="ir.ui.view">
+        <field name="name">mrp.production.work.order.pivot.inherit.mrp.workorder</field>
+        <field name="model">mrp.workorder</field>
+        <field name="inherit_id" ref="mrp.workcenter_line_pivot"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='duration_expected']" position="after">
+                <field name="qty_order" string="Original QTY" type="measure"/>
+                <field name="total_qty_finished" string="Finished QTY" type="measure"/>
+                <field name="qty_balance" string="Balance QTY" type="measure"/>
+            </xpath>
+            <field name="duration" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <field name="duration_unit" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <field name="duration_expected" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+        </field>
+    </record>
+
+</odoo>
