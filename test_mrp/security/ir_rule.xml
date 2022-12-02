@@ -11,4 +11,10 @@
             <field name="model_id" search="[('model','=','mrp.production')]" model="ir.model"/>
             <field name="domain_force">[('user_id','=',user.id)]</field>
      </record>
+
+    <record id="ir_rule_test_mrp_workcenter" model="ir.rule">
+        <field name="name">User: mrp_workcenter</field>
+        <field name="model_id" ref="model_mrp_workcenter"/>
+        <field name="domain_force">[('user_ids','in',user.id)]</field>
+    </record>
 </odoo>
