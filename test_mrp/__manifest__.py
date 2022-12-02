@@ -1,6 +1,6 @@
 {
     'name': 'TEST MRP',
-    'version': '15.0.1.0.1',
+    'version': '15.0.1.0.2',
     'author': 'AMLC',
     'category': 'Module for MRP',
     'license': 'LGPL-3',
