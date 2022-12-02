@@ -8,6 +8,7 @@ class MrpWorkorder(models.Model):
     qty_balance = fields.Float(compute='_compute_qty_balance', store=True)
     total_qty_finished = fields.Float(compute='_compute_sum_qty_finished', store=True)
     qty_order = fields.Float(related="production_id.product_qty", store=True)
+    user_ids = fields.Many2many(related="workcenter_id.user_ids")
 
     @api.depends('workorder_line')
     def _compute_sum_qty_finished(self):
